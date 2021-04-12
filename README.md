@@ -46,12 +46,12 @@ Note: The following data import is done on the Neo4j console. Put all CSV files 
 
 ##### Node creation sample:
     4,840 entities created from 9 node labels and here the following figure shows all those labels and the sample cypher query of entity creation:
-![image](https://raw.githubusercontent.com/tadiyoo/Satellite_KnowledgeGraph/master/img/node_labels.png)
+![image](https://raw.githubusercontent.com/tadiyoo/Chinese-Postman-Problem/master/img/node_labels.png)
 
 
 ##### Relationship creation sample:
     35,999 relationships created from 27 relationship types and here the following figure shows all those types and the sample cypher query of relationship creation:
-![image](https://raw.githubusercontent.com/tadiyoo/Satellite_KnowledgeGraph/master/img/relationship.png)
+![image](https://raw.githubusercontent.com/tadiyoo/Chinese-Postman-Problem/master/img/relationship.png)
 
 
 ### 5. Test the constructed satellite knowledge graph
@@ -63,7 +63,7 @@ Note: The following data import is done on the Neo4j console. Put all CSV files 
     MATCH (s: Satellites) - [rel1: SatsOperator] -> (o: Operator {Country: "China"}) - [rel2: OperatorsPurpose] -> (p: Purpose) RETURN s, o, p
 
 The query output is below:
-![image](https://raw.githubusercontent.com/tadiyoo/Satellite_KnowledgeGraph/master/img/KGQ1.png)
+![image](https://raw.githubusercontent.com/tadiyoo/Chinese-Postman-Problem/master/img/KGQ1.png)
 
 2. Find all the possible relationships of the earth observation satellites with other remained node labels where the primarily users are Military.
     Cypher query used to get the answer for this question:
@@ -72,7 +72,7 @@ The query output is below:
     LIMIT 1000
 
 The query output is below:
-![image](https://raw.githubusercontent.com/tadiyoo/Satellite_KnowledgeGraph/master/img/KGQ2.png)
+![image](https://raw.githubusercontent.com/tadiyoo/Chinese-Postman-Problem/master/img/KGQ2.png)
 
 
 ## functional module
@@ -83,17 +83,17 @@ turn on：http://127.0.0.1:8000/
 
 ### 1. Entity Recognition
     Mainly identify people, place names, institutions, satellite names and owner or operator countries name
-![image](https://raw.githubusercontent.com/tadiyoo/Satellite_KnowledgeGraph/master/img/ner.png)
+![image](https://raw.githubusercontent.com/tadiyoo/Chinese-Postman-Problem/master/img/ner.png)
 
 ### 2. Entity Search
     Entering the name of of the satellite/user/pupose/contractor/launch site/launch vehicle/operator/owner/country of UN registry/class/type of orbit, it will show the direct relationship
-![image](https://raw.githubusercontent.com/tadiyoo/Satellite_KnowledgeGraph/master/img/search_ner.png)
+![image](https://raw.githubusercontent.com/tadiyoo/Chinese-Postman-Problem/master/img/search_ner.png)
 
 ### 3. Relationship Search
     Main entity relationships: SatsUNRegistry, SatsOperator, SatsUser, SatsPurpose, SatsOrbit, SatsContractor, SatsLaunchSite, SatsLaunchVehicle, and others.
 
     You can choose different relationship types and enter the name of the satellite/user/pupose/contractor/launch site/launch vehicle/operator/owner/country of UN registry/class/type of orbit, and show it to a detail graph
-![image](https://raw.githubusercontent.com/tadiyoo/Satellite_KnowledgeGraph/master/img/search_relation.png)
+![image](https://raw.githubusercontent.com/tadiyoo/Chinese-Postman-Problem/master/img/search_relation.png)
 
 ### 4. Satellite Q&A
 
@@ -135,4 +135,4 @@ turn on：http://127.0.0.1:8000/
     
     5. After the intent is recognized, Convert the recognized intent and the extracted slot (ie the recognized entity) into cypher language, and query in neo4j to get the answer
          Use the classification model to predict the intent category of the user's question, convert different intent categories into different cypher languages, and get answers from neo4j queries.
-![image](https://raw.githubusercontent.com/tadiyoo/Satellite_KnowledgeGraph/master/img/qa.png)
+![image](https://raw.githubusercontent.com/tadiyoo/Chinese-Postman-Problem/master/img/qa.png)
